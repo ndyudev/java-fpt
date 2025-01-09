@@ -37,12 +37,11 @@ java-fpt/
    ```
 
 2. **Chạy chương trình**:
-   - Di chuyển vào thư mục bài lab hoặc bài tập lớn bạn muốn thực hiện.
-   - Sử dụng IDE như IntelliJ IDEA hoặc Eclipse để mở và chạy mã nguồn.
-
-3. **Liên hệ**:
-   - Email: chauunhatduyyit@gmail.com
-   - Github: ndyudev
+    - Di chuyển vào thư mục bài lab hoặc bài tập lớn bạn muốn thực hiện.
+    - Sử dụng IDE như IntelliJ IDEA hoặc Eclipse để mở và chạy mã nguồn.
+3. **Liên Hệ**:
+    - Email: chauunhatduyyit@gmail.com
+    - Github: ndyudev
 
 ## Công nghệ sử dụng
 
