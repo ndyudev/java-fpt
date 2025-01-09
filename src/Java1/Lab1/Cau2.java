@@ -8,9 +8,9 @@ diện tích và cạnh nhỏ của hình chữ nhật. */
 public class Cau2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap chieu dai cua hinh chu nhat:");
+        System.out.print("Nhap chieu dai cua hinh chu nhat:");
         Double chieudai = scanner.nextDouble();
-        System.out.println("Nhap chieu rong cua hinh chu nhat:");
+        System.out.print("Nhap chieu rong cua hinh chu nhat:");
         Double chieurong = scanner.nextDouble();
         Double chuvi = ( chieudai + chieurong ) * 2;
         Double dientich = chieudai * chieurong;
