@@ -20,33 +20,33 @@ Date: 17/1/2025
  */
 public class Cau2 {
     public static class Product {
-        public String nameProduct;
-        public double price, giamGia, thue;
-
-        public class Product(String nameProduct, double price, giamGia, thue) {
-            this.nameProduct = nameProduct;
-
-        }
-
-        public void inputProduct(){
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Nhap thong tin san pham:");
-            nameProduct = sc.nextLine();
-            System.out.print("Nhap gia cua san pham:");
-            price = sc.nextDouble();
-            System.out.print("Giam gia?:");
-            giamGia = sc.nextDouble();
-            System.out.print("Nhap thue san pham ( % ):");
-            thue = sc.nextDouble();
-        }
-
-        public double tinhTienThue(double price, double thue) {
-            thue = price * 0.1;
-            return thue;
-        }
+//        public String nameProduct;
+//        public double price, giamGia, thue;
+//
+//        public class Product(String nameProduct, double price, giamGia, thue) {
+//            this.nameProduct = nameProduct;
+//
+//        }
+//
+//        public void inputProduct(){
+//            Scanner sc = new Scanner(System.in);
+//            System.out.print("Nhap thong tin san pham:");
+//            nameProduct = sc.nextLine();
+//            System.out.print("Nhap gia cua san pham:");
+//            price = sc.nextDouble();
+//            System.out.print("Giam gia?:");
+//            giamGia = sc.nextDouble();
+//            System.out.print("Nhap thue san pham ( % ):");
+//            thue = sc.nextDouble();
+//        }
+//
+//        public double tinhTienThue(double price, double thue) {
+//            thue = price * 0.1;
+//            return thue;
+//        }
     }
 
-    public static void main(String[] args) {
-        Product product = new Product;
-    }
+//    public static void main(String[] args) {
+//        Product product = new Product;
+//    }
 }
