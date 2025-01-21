@@ -1,4 +1,5 @@
 package Java1.Lab4;
+
 /* PHẦN I
 Bài 1 (2 điểm)
 Tạo lớp SanPham gồm 3 thuộc tính là tên, giá và giảm giá. Lớp cũng gồm 2
@@ -72,47 +73,24 @@ Name: Chau Nhat Duy
 MSSV: PS44284
 Date: 21/1/2025
  */
-public class SanPham {
-    // Thuộc tính (private)
-    private String tenSp;
-    private double donGia;
-    private double giamGia;
+public class Main_SanPham {
+    public static void main(String[] args) {
+        // Tạo sản phẩm và thiết lập dữ liệu bằng setter
+        SanPham sp1 = new SanPham();
+        sp1.setTenSp("Laptop");
+        sp1.setDonGia(15000);
+        sp1.setGiamGia(2000);
 
-    // Getter và Setter cho từng thuộc tính
-    public String getTenSp() {
-        return tenSp;
-    }
+        SanPham sp2 = new SanPham();
+        sp2.setTenSp("Điện thoại");
+        sp2.setDonGia(10000);
+        sp2.setGiamGia(0);
 
-    public void setTenSp(String tenSp) {
-        this.tenSp = tenSp;
-    }
+        // Xuất thông tin sản phẩm
+        System.out.println("Thông tin sản phẩm thứ nhất:");
+        sp1.xuat();
 
-    public double getDonGia() {
-        return donGia;
-    }
-
-    public void setDonGia(double donGia) {
-        this.donGia = donGia;
-    }
-
-    public double getGiamGia() {
-        return giamGia;
-    }
-
-    public void setGiamGia(double giamGia) {
-        this.giamGia = giamGia;
-    }
-
-    // Phương thức tính thuế nhập khẩu
-    private double getThueNhapKhau() {
-        return donGia * 0.1;
-    }
-
-    // Phương thức xuất thông tin sản phẩm
-    public void xuat() {
-        System.out.println("Tên sản phẩm: " + tenSp);
-        System.out.println("Đơn giá: " + donGia);
-        System.out.println("Giảm giá: " + giamGia);
-        System.out.println("Thuế nhập khẩu: " + getThueNhapKhau());
+        System.out.println("\nThông tin sản phẩm thứ hai:");
+        sp2.xuat();
     }
 }
