@@ -44,47 +44,38 @@ Date: 18/1/2025
  */
 public class ASM1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); // Khởi tạo Scanner một lần
-        int choice; // Biến lưu lựa chọn của người dùng
+        Scanner sc = new Scanner(System.in);
+        int choice;
 
         do {
-            choice = Menu(); // Gọi hàm hiển thị menu và lấy lựa chọn
+            choice = Menu();
             switch (choice) {
                 case 1:
                     System.out.println("Nhập danh sách nhân viên ( Đang phát triển )");
-                    // Gọi phương thức xử lý nhập danh sách
                     break;
                 case 2:
                     System.out.println("Xuất danh sách nhân viên ( Đang phát triển )");
-                    // Gọi phương thức xử lý xuất danh sách
                     break;
                 case 3:
                     System.out.println("Tìm nhân viên theo mã ( Đang phát triển )");
-                    // Gọi phương thức tìm nhân viên theo mã
                     break;
                 case 4:
                     System.out.println("Xóa nhân viên theo mã ( Đang phát triển )");
-                    // Gọi phương thức xóa nhân viên
                     break;
                 case 5:
                     System.out.println("Cập nhật thông tin nhân viên ( Đang phát triển )");
-                    // Gọi phương thức cập nhật thông tin nhân viên
                     break;
                 case 6:
                     System.out.println("Tìm nhân viên theo khoảng lương ( Đang phát triển )");
-                    // Gọi phương thức tìm nhân viên theo khoảng lương
                     break;
                 case 7:
                     System.out.println("Sắp xếp nhân viên theo họ tên ( Đang phát triển )");
-                    // Gọi phương thức sắp xếp theo họ tên
                     break;
                 case 8:
                     System.out.println("Sắp xếp nhân viên theo thu nhập ( Đang phát triển )");
-                    // Gọi phương thức sắp xếp theo thu nhập
                     break;
                 case 9:
                     System.out.println("Xuất 5 nhân viên có thu nhập cao nhất ( Đang phát triển )");
-                    // Gọi phương thức xuất nhân viên có thu nhập cao
                     break;
                 case 0:
                     System.out.println("Thoát chương trình. Cảm ơn đã sử dụng!");
@@ -93,13 +84,13 @@ public class ASM1 {
                     System.out.println("Lựa chọn không hợp lệ! Vui lòng chọn lại.");
                     break;
             }
-        } while (choice != 0); // Lặp lại đến khi người dùng chọn "0"
+        } while (choice != 0);
     }
 
     public static int Menu() {
-        Scanner sc = new Scanner(System.in); // Scanner để lấy đầu vào từ người dùng
-        int choice = -1; // Biến lưu lựa chọn của người dùng
-        boolean valid = false; // Cờ kiểm tra đầu vào hợp lệ
+        Scanner sc = new Scanner(System.in);
+        int choice = -1;
+        boolean valid = false;
 
         do {
             try {
@@ -119,16 +110,16 @@ public class ASM1 {
                 System.out.println("+---------------------------------------+");
                 System.out.print("  Vui lòng chọn chức năng: ");
 
-                choice = Integer.parseInt(sc.nextLine()); // Đọc input và chuyển sang kiểu số nguyên
+                choice = Integer.parseInt(sc.nextLine());
                 if (choice < 0 || choice > 9) {
                     System.out.println("Lựa chọn không hợp lệ! Vui lòng nhập số từ 0 đến 9.");
                 } else {
-                    valid = true; // Đầu vào hợp lệ
+                    valid = true;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Lỗi: Vui lòng nhập số nguyên!");
             }
-        } while (!valid); // Lặp lại nếu đầu vào không hợp lệ
+        } while (!valid);
 
         return choice;
     }
