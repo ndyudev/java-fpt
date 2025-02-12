@@ -1,4 +1,4 @@
-package Java1.Lab5;
+package Java1.Lab5.Cau1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,41 +21,33 @@ break;
 Name: Chau Nhat Duy
 MSSV: Ps44284
 Date: 7/2/2025
- */
-public class Cau1 {
+*/
+public class listSoThuc {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         ArrayList<Double> list = new ArrayList<>();
-
+        Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.print("Nhập số thực: ");
-            if (sc.hasNextDouble()) {
-                double num = sc.nextDouble();
-                list.add(num);
-            } else {
-                System.out.println("Lỗi: Bạn phải nhập số thực!");
-                sc.next();
-                continue;
-            }
-
-            System.out.print("Nhập thêm (Y/N)? ");
+            System.out.print("Nhập số thực cho list: ");
+            double x = sc.nextDouble();
+            list.add(x);
             sc.nextLine();
-            String choice = sc.nextLine().trim().toUpperCase();
-            if (choice.equals("N")) {
+            System.out.print("Bạn muốn tiếp tục nhập không? Y/N: ");
+            String response = sc.nextLine().trim();
+            if (response.equalsIgnoreCase("N")) {
+                System.out.println("Thoát chương trình");
                 break;
+            } else if (!response.equalsIgnoreCase("Y")) {
+                System.out.println("Chỉ nhập Y hoặc N");
             }
         }
 
-        // Xuất danh sách số thực
-        System.out.println("Danh sách số thực đã nhập:");
         double sum = 0;
-        for (double num : list) {
-            System.out.print(num + " ");
-            sum += num;
+        System.out.println("Các số đã nhập:");
+        for (double temp : list) {
+            System.out.println(temp);
+            sum += temp;
         }
 
-        // In tổng các số thực
-        System.out.println("\nTổng các số thực: " + sum);
-        sc.close();
+        System.out.println("Tổng: " + sum);
     }
 }
