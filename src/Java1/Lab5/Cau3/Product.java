@@ -17,8 +17,7 @@ public class Product {
         return price;
     }
 
-    @Override
-    public String toString() {
-        return "Tên: " + name + " - Giá: " + price;
+    public void display() {
+        System.out.println(name + " - " + price + " VND");
     }
 }

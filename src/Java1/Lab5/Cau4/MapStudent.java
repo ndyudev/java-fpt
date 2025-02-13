@@ -29,7 +29,7 @@ public class MapStudent {
         String tenSV = scanner.nextLine();
         String maTimThay = null;
         for (String key : students.keySet()) {
-            if (students.get(key).equalsIgnoreCase(tenSV)) { // Không phân biệt hoa thường
+            if (students.get(key).equalsIgnoreCase(tenSV)) {
                 maTimThay = key;
                 break;
             }

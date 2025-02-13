@@ -1,7 +1,9 @@
 package Java1.Lab5.Cau3;
 
+import Java1.Lab5.Cau3.Product;
+
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ManagerProduct {
@@ -13,7 +15,7 @@ public class ManagerProduct {
         scanner = new Scanner(System.in);
     }
 
-    // 1. Nhập danh sách sản phẩm
+    // Nhập danh sách sản phẩm
     public void inputProducts() {
         System.out.print("Nhập số lượng sản phẩm: ");
         int n = scanner.nextInt();
@@ -30,32 +32,39 @@ public class ManagerProduct {
         }
     }
 
-    // 2. Sắp xếp danh sách theo giá giảm dần
+    // Sắp xếp danh sách theo giá giảm dần
     public void sortProducts() {
-        productList.sort(Comparator.comparingDouble(Product::getPrice).reversed());
-        System.out.println("Danh sách sau khi sắp xếp giảm dần theo giá:");
+        Collections.sort(productList, (p1, p2) -> Double.compare(p2.getPrice(), p1.getPrice()));
+        System.out.println("Danh sách sau khi sắp xếp:");
         displayProducts();
     }
 
-    // 3. Tìm và xóa sản phẩm theo tên
+    // Xóa sản phẩm theo tên
     public void deleteProductByName() {
         System.out.print("Nhập tên sản phẩm cần xóa: ");
         String nameToDelete = scanner.nextLine();
-        boolean removed = productList.removeIf(product -> product.getName().equalsIgnoreCase(nameToDelete));
+        boolean found = false;
 
-        if (removed) {
-            System.out.println("Đã xóa sản phẩm: " + nameToDelete);
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getName().equalsIgnoreCase(nameToDelete)) {
+                productList.remove(i);
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            System.out.println("Đã xóa sản phẩm " + nameToDelete);
         } else {
             System.out.println("Không tìm thấy sản phẩm cần xóa.");
         }
-
         displayProducts();
     }
 
-    // 4. Xuất giá trung bình của danh sách sản phẩm
+    // Xuất giá trung bình của danh sách sản phẩm
     public void displayAveragePrice() {
         if (productList.isEmpty()) {
-            System.out.println("Danh sách sản phẩm trống.");
+            System.out.println("Danh sách trống.");
             return;
         }
 
@@ -71,23 +80,23 @@ public class ManagerProduct {
     // Hiển thị danh sách sản phẩm
     public void displayProducts() {
         if (productList.isEmpty()) {
-            System.out.println("Danh sách sản phẩm trống.");
+            System.out.println("Danh sách trống.");
         } else {
             for (Product p : productList) {
-                System.out.println(p);
+                p.display();
             }
         }
     }
 
-    // Menu lựa chọn
-    public void menu() {
+    // Chạy chương trình
+    public void run() {
         int choice;
         do {
-            System.out.println("\n----- MENU QUẢN LÝ SẢN PHẨM -----");
-            System.out.println("1. Nhập danh sách sản phẩm");
-            System.out.println("2. Sắp xếp giảm dần theo giá và xuất danh sách");
-            System.out.println("3. Tìm và xóa sản phẩm theo tên");
-            System.out.println("4. Xuất giá trung bình của các sản phẩm");
+            System.out.println("\n----- MENU -----");
+            System.out.println("1. Nhập sản phẩm");
+            System.out.println("2. Sắp xếp giảm dần theo giá");
+            System.out.println("3. Xóa sản phẩm theo tên");
+            System.out.println("4. Tính giá trung bình");
             System.out.println("5. Thoát");
             System.out.print("Chọn chức năng: ");
             choice = scanner.nextInt();
@@ -110,13 +119,13 @@ public class ManagerProduct {
                     System.out.println("Thoát chương trình.");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ! Vui lòng nhập lại.");
+                    System.out.println("Lựa chọn không hợp lệ!");
             }
         } while (choice != 5);
     }
 
     public static void main(String[] args) {
         ManagerProduct manager = new ManagerProduct();
-        manager.menu();
+        manager.run();
     }
 }
