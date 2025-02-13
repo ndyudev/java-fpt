@@ -1,3 +1,5 @@
+package Java1.Lab5.Cau2;
+
 import java.util.*;
 
 /**
@@ -5,19 +7,20 @@ import java.util.*;
  */
 public class Student {
     private List<String> names;
+    private Scanner scanner;
 
     /**
      * Constructor khởi tạo danh sách tên
      */
     public Student() {
         names = new ArrayList<>();
+        scanner = new Scanner(System.in);
     }
 
     /**
      * Phương thức nhập danh sách họ và tên từ người dùng
      */
     public void nhap() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập số lượng tên: ");
         int n = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < n; i++) {
@@ -49,8 +52,7 @@ public class Student {
      * Phương thức sắp xếp danh sách theo thứ tự giảm dần
      */
     public void sapXep() {
-        Collections.sort(names);
-        Collections.reverse(names);
+        names.sort(Collections.reverseOrder());
         System.out.println("Danh sách sau khi sắp xếp giảm dần:");
         xuat();
     }
@@ -59,19 +61,10 @@ public class Student {
      * Phương thức tìm và xóa họ và tên nhập từ bàn phím
      */
     public void xoa() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập tên cần xóa: ");
         String tenXoa = scanner.nextLine();
-        Iterator<String> iterator = names.iterator();
-        boolean found = false;
-        while (iterator.hasNext()) {
-            if (iterator.next().equalsIgnoreCase(tenXoa)) {
-                iterator.remove();
-                found = true;
-                break;
-            }
-        }
-        if (found) {
+        boolean removed = names.removeIf(name -> name.equalsIgnoreCase(tenXoa));
+        if (removed) {
             System.out.println("Đã xóa thành công!");
         } else {
             System.out.println("Không tìm thấy tên cần xóa.");
@@ -83,7 +76,6 @@ public class Student {
      * Phương thức hiển thị menu và xử lý lựa chọn của người dùng
      */
     public void menu() {
-        Scanner scanner = new Scanner(System.in);
         int choice;
         do {
             System.out.println("\nMenu");
@@ -94,8 +86,7 @@ public class Student {
             System.out.println("5. Tìm và xóa họ tên nhập từ bàn phím");
             System.out.println("6. Kết thúc");
             System.out.print("Chọn chức năng: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1:
@@ -120,13 +111,5 @@ public class Student {
                     System.out.println("Lựa chọn không hợp lệ!");
             }
         } while (choice != 6);
-    }
-
-    /**
-     * Phương thức main để chạy chương trình
-     */
-    public static void main(String[] args) {
-        Student manager = new Student();
-        manager.menu();
     }
 }
