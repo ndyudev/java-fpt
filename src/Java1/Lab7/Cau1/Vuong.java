@@ -8,6 +8,6 @@ public class Vuong extends ChuNhat{
     @Override
     public void xuat() {
         System.out.println("Hình vuông - Cạnh: " + dai);
-        System.out.println("Diện tích: " + getDienTich() + ", Chu vi: " + getChuVi());
+        super.xuat();
     }
 }

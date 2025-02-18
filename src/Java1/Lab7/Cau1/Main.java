@@ -16,7 +16,7 @@ public class Main {
             // Nhập hình vuông
             System.out.print("Nhập cạnh của hình vuông: ");
             double canh = scanner.nextDouble();
-            ChuNhat vu = new Vuong(canh); // Định nghĩa kiểu cha nhưng dùng lớp con
+            Vuong vu = new Vuong(canh);
 
             // Xuất thông tin
             cn1.xuat();
