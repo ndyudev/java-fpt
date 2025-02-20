@@ -42,7 +42,7 @@ Name: Chau Nhat Duy
 MSSV: PS44284
 Date: 18/1/2025
  */
-public class ASM1 {
+public class Menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice;
