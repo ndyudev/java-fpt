@@ -1,18 +1,21 @@
 package Java1.ASM;
 
 public class TruongPhong extends NhanVien {
-    private double trachNhiem;
+    double luongTrachNhiem; // Lương trách nhiệm
 
-    public TruongPhong(String maNhanVien, double salary, String hoVaTen, double trachNhiem) {
-        super(maNhanVien, salary, hoVaTen);
-        this.trachNhiem = trachNhiem;
+    public TruongPhong(String maNV, String hoTen, double luong, double luongTrachNhiem) {
+        super(maNV, hoTen, luong);
+        this.luongTrachNhiem = luongTrachNhiem;
     }
 
-    public double getTrachNhiem() {
-        return trachNhiem;
-    }
-
+    @Override
     public double getThuNhap() {
-        return getSalary() + getThuNhap();
+        return luong + luongTrachNhiem; // Thu nhập = lương + lương trách nhiệm
+    }
+
+    @Override
+    public String toString() {
+        return "Trưởng phòng - " + super.toString() +
+                ", Lương trách nhiệm: " + luongTrachNhiem;
     }
 }

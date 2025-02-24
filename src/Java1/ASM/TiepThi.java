@@ -1,24 +1,23 @@
 package Java1.ASM;
 
 public class TiepThi extends NhanVien {
-    private double doanhSo;
-    private double hoaHong;
+    double doanhSo;       // Doanh số bán hàng
+    double tiLeHueHong;   // Tỉ lệ huê hồng (dạng thập phân, ví dụ 0.1 cho 10%)
 
-    public TiepThi(String maNhanVien, double salary, String hoVaTen, double doanhSo, double hoaHong) {
-        super(maNhanVien, salary, hoVaTen);
+    public TiepThi(String maNV, String hoTen, double luong, double doanhSo, double tiLeHueHong) {
+        super(maNV, hoTen, luong);
         this.doanhSo = doanhSo;
-        this.hoaHong = hoaHong;
+        this.tiLeHueHong = tiLeHueHong;
     }
 
-    public double getDoanhSo() {
-        return doanhSo;
-    }
-
-    public double getHoaHong() {
-        return hoaHong;
-    }
-
+    @Override
     public double getThuNhap() {
-        return ( getDoanhSo() / getHoaHong() ) + getSalary();
+        return luong + (doanhSo * tiLeHueHong); // Thu nhập = lương + huê hồng
+    }
+
+    @Override
+    public String toString() {
+        return "Nhân viên tiếp thị - " + super.toString() +
+                ", Doanh số: " + doanhSo + ", Tỉ lệ huê hồng: " + (tiLeHueHong * 100) + "%";
     }
 }
