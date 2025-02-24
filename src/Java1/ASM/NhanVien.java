@@ -1,41 +1,51 @@
 package Java1.ASM;
 
 public class NhanVien {
-    private String maNhanVien;
-    private String hoVaTen;
-    private double salary;
+    protected String maNV;    // Mã nhân viên
+    protected String hoTen;   // Họ tên
+    protected double luong;   // Lương tháng
 
-    public String getMaNhanVien() {
-        return maNhanVien;
+    // Constructor
+    public NhanVien(String maNV, String hoTen, double luong) {
+        this.maNV = maNV;
+        this.hoTen = hoTen;
+        this.luong = luong;
     }
 
-    public void setMaNhanVien(String maNhanVien) {
-        this.maNhanVien = maNhanVien;
+    // Getters
+    public String getMaNV() {
+        return maNV;
     }
 
-    public double getSalary() {
-        return salary;
+    public String getHoTen() {
+        return hoTen;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public double getLuong() {
+        return luong;
     }
 
-    public String getHoVaTen() {
-        return hoVaTen;
+    // Phương thức để tính thu nhập (sẽ được ghi đè bởi các lớp con)
+    public double getThuNhap() {
+        return luong; // Mặc định, thu nhập = lương (cho nhân viên hành chính)
     }
 
-    public void setHoVaTen(String hoVaTen) {
-        this.hoVaTen = hoVaTen;
+    // Phương thức để tính thuế thu nhập (chung cho tất cả)
+    public double tinhThueThuNhap() {
+        double thuNhap = getThuNhap();
+        if (thuNhap < 9000000) {
+            return 0; // Không đóng thuế
+        } else if (thuNhap <= 15000000) {
+            return thuNhap * 0.1; // Đóng 10%
+        } else {
+            return thuNhap * 0.12; // Đóng 12%
+        }
     }
 
-    public NhanVien(String maNhanVien, double salary, String hoVaTen) {
-        this.maNhanVien = maNhanVien;
-        this.salary = salary;
-        this.hoVaTen = hoVaTen;
-    }
     @Override
     public String toString() {
-        return "Ho va ten: " + hoVaTen + "\nMa Nhan Vien: " + maNhanVien + "\nLuong: " + salary;
+        return "Mã: " + maNV + ", Tên: " + hoTen +
+                ", Lương: " + luong + ", Thu nhập: " + getThuNhap() +
+                ", Thuế: " + tinhThueThuNhap();
     }
 }
