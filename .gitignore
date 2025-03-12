@@ -2,6 +2,11 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+.idea/
+*.iml
+build/
+nbproject/private/
+dist/
 
 ### Eclipse ###
 .apt_generated
